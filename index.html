@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Remover</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖼️ Background Remover</h1>
+            <p>Remove backgrounds from your images instantly</p>
+        </header>
+
+        <main>
+            <div class="upload-section" id="uploadSection">
+                <div class="upload-area" id="dropZone">
+                    <div class="upload-icon">📤</div>
+                    <p>Drag & drop your image here</p>
+                    <p class="or">— or —</p>
+                    <button class="btn btn-primary" id="selectBtn">Select Image</button>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <div class="editor-section" id="editorSection" hidden>
+                <div class="image-comparison">
+                    <div class="image-box">
+                        <h3>Original</h3>
+                        <div class="image-wrapper">
+                            <img id="originalImage" alt="Original">
+                        </div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="image-box">
+                        <h3>Result</h3>
+                        <div class="image-wrapper checkerboard" id="resultWrapper">
+                            <img id="resultImage" alt="Result" hidden>
+                            <div class="loading" id="loadingSpinner" hidden>
+                                <div class="spinner"></div>
+                                <p>Removing background...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-secondary" id="newImageBtn">🔄 New Image</button>
+                    <button class="btn btn-primary" id="downloadBtn" disabled>💾 Download</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Supports JPG, PNG, WebP • Max 10MB</p>
+        </footer>
+    </div>
+
+    <!-- TensorFlow.js and BodyPix for client-side processing -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.2.0/dist/body-pix.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
